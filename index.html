@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Romantic Heart</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{
+      display:flex;align-items:center;justify-content:center;
+      background: radial-gradient(circle at top left, #070e16, #07132a 40%, #000814 80%);
+      position: relative;
+      font-family: 'Playfair Display', serif;
+      color:#fdf0f0;
+      overflow:hidden;
+    }
+    body::before {
+      content: "";
+      position: absolute;
+      top:0;left:0;right:0;bottom:0;
+      background: url('https://www.transparenttextures.com/patterns/stardust.png') repeat;
+      opacity: 0.4;
+      z-index: 0;
+    }
+    .stage{
+      width:100%;max-width:900px;padding:40px;
+      display:flex;flex-direction:column;align-items:center;gap:28px;
+      position: relative;
+      z-index: 1;
+    }
+    .heart-wrap{
+      position:relative;width:240px;height:220px;display:flex;align-items:center;justify-content:center
+    }
+    .heart{
+      position:relative;width:140px;height:140px;
+      transform:rotate(-45deg);
+      background: radial-gradient(circle at 30% 30%, #c93c3c, #9f1111 70%);
+      box-shadow: 0 15px 35px rgba(255,77,123,0.35), inset 0 -8px 20px rgba(255,255,255,0.15);
+      border-radius:20px 20px 0 0;
+      animation:beat 1s ease-in-out infinite;
+    }
+    .heart::before, .heart::after{
+      content:"";position:absolute;width:140px;height:140px;border-radius:50%;background:inherit;top:-70px;left:0;box-shadow:inherit
+    }
+    .heart::after{left:70px;top:0}
+    @keyframes beat{
+      0%{transform:rotate(-45deg) scale(0.95)}
+      40%{transform:rotate(-45deg) scale(1.15)}
+      70%{transform:rotate(-45deg) scale(0.98)}
+      100%{transform:rotate(-45deg) scale(1)}
+    }
+    .shine{
+      position:absolute;width:100%;height:100%;border-radius:50%;background:radial-gradient(circle at 20% 20%, rgba(255,255,255,0.6), transparent 60%);
+      transform:rotate(45deg);
+      pointer-events:none;
+    }
+    .pulse {
+      position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+      width:280px;height:280px;border-radius:50%;
+      background: radial-gradient(circle at center, rgba(255,120,160,0.2) 0%, rgba(255,120,160,0.06) 30%, rgba(255,120,160,0) 60%);
+      filter: blur(15px);
+      animation:float 6s ease-in-out infinite;
+      z-index:-1;
+    }
+    @keyframes float{
+      0%{transform:translate(-50%,-50%) scale(0.95)}
+      50%{transform:translate(-50%,-54%) scale(1.05)}
+      100%{transform:translate(-50%,-50%) scale(0.95)}
+    }
+    .message{text-align:center;max-width:720px;}
+    .message h1{
+      font-family: 'Great Vibes', cursive;
+      font-size:42px;margin-bottom:8px;letter-spacing:0.6px;
+    }
+    .message p{font-size:18px;color:#ffe6eb;opacity:0.95;}
+    .typewriter{
+      display:inline-block;overflow:hidden;white-space:nowrap;border-right:3px solid rgba(255,255,255,0.9);
+      animation:typing 3.6s steps(30, end) 1, blink 0.8s step-end infinite;
+      max-width:100%;
+    }
+    @keyframes typing{from{width:0} to{width:100%}}
+    @keyframes blink{50%{border-color:transparent}}
+  </style>
+</head>
+<body>
+  <div class="stage">
+    <div class="heart-wrap">
+      <div class="pulse"></div>
+      <div class="heart" aria-hidden="true">
+        <div class="shine"></div>
+      </div>
+    </div>
+    <div class="message">
+      <h1 id="title">My Only One Jenson</h1>
+      <p><span class="typewriter" id="type">I love you more than words can say.</span></p>
+    </div>
+  </div>
+</body>
+</html>
